@@ -20,26 +20,26 @@
 	        </nav>
 	
 	        <div class="container" id="cadastro">
-	            <form action="/users/salvar" method="POST">
+	            <form th:action="@{/users/salvar}" th:object="${usuario}" method="POST">
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
 	                        <label for="nome">Nome:</label>
 	                        <input type="text" class="form-control" id="nome"
-	                               placeholder="Nome" autofocus="autofocus" name="nome" value=""/>
+	                               placeholder="Nome" autofocus="autofocus" th:field="*{nome}"/>
 	                    </div>
 	                </div>
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
 	                        <label for="email">Email:</label>
 	                        <input type="text" class="form-control" id="email"
-	                               placeholder="Email" autofocus="autofocus" name="email" value=""/>
+	                               placeholder="Email" autofocus="autofocus" th:field="*{email}"/>
 	                    </div>
 	                </div>
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
 	                        <label for="senha">Senha:</label>
 	                        <input type="text" class="form-control" id="senha"
-	                               placeholder="Senha" autofocus="autofocus" name="senha" value=""/>
+	                               placeholder="Senha" autofocus="autofocus" th:field="*{senha}"/>
 	                    </div>
 	                </div>
 	                <div class="form-check">
