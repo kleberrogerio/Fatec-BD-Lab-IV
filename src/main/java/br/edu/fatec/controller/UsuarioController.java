@@ -11,27 +11,27 @@ import br.edu.fatec.model.Usuario;
 import br.edu.fatec.service.CadastroUsuarioService;
 
 @Controller
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/usuarios")
+public class UsuarioController {
 	
 	@Autowired
 	private CadastroUsuarioService service;
 	
 	@GetMapping("/cadastrar")
 	public String cadastrar(Usuario usuario) {
-		return "/user/cadastro";
+		return "/usuario/cadastro";
 	}
 	
 	@GetMapping("/listar")
 	public String listar(ModelMap model) {
 		model.addAttribute("usuarios",service.Listar());
-		return "/user/lista";
+		return "/usuario/lista";
 	}
 	
 	@PostMapping("/salvar")
 	public String salvar(Usuario usuario) {
 		service.salvar(usuario);
-		return "redirect:/users/cadastrar";
+		return "redirect:/usuarios/cadastrar";
 		
 	}
 
