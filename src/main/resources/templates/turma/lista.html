@@ -36,9 +36,9 @@
 	                    </tr>
 	                    </thead>
 	                    <tbody>
-	                    <tr>
-	                        <td>1</td>
-	                        <td>Turma A</td>
+	                    <tr th:each="t : ${turmas}">
+	                        <td th:text="${t.id}">1</td>
+	                        <td th:text="${t.descricao}">Turma A</td>
 	                        <td>
 	                        </td>
 	                        <td>
@@ -59,52 +59,7 @@
 	                            </button>
 	                        </td>
 	                    </tr>
-	                    <tr>
-	                        <td>2</td>
-	                        <td>Turma B</td>
-	                       <td>
-	                        </td>
-	                        <td>
-	                        </td>
-	                        <td>
-	                        </td>
-	                        </td>
-	                        <td>
-	                        </td>
-	                        <td>
-	                        </td>
-	                        <td colspan="2">
-	                            <a class="btn btn-info btn-sm" href="/turmas/editar/2" role="button">
-	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
-	                            </a>
-	                            <button type="button" class="btn btn-danger btn-sm">
-	                                <span class="oi oi-circle-x" title="Exclusão desabilitada" aria-hidden="true"></span>
-	                            </button>
-	                        </td>
-	                    </tr>
-	                    <tr>
-	                        <td>3</td>
-	                        <td>Turma C</td>
-	                       <td>
-	                        </td>
-	                        <td>
-	                        </td>
-	                        <td>
-	                        </td>
-	                        </td>
-	                        <td>
-	                        </td>
-	                        <td>
-	                        </td>
-	                        <td colspan="2">
-	                            <a class="btn btn-info btn-sm" href="/turmas/editar/1" role="button">
-	                                <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
-	                            </a>
-	                            <button type="button" class="btn btn-danger btn-sm" >
-	                                <span class="oi oi-circle-x" title="Exclusão desabilitada" aria-hidden="true"></span>
-	                            </button>
-	                        </td>
-	                    </tr>
+	             
 	                    </tbody>
 	                </table>
 	            </div>
