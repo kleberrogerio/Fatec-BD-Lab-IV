@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -32,6 +33,20 @@ public class UsuarioController {
 	public String salvar(Usuario usuario) {
 		service.salvar(usuario);
 		return "redirect:/usuarios/cadastrar";
+		
+	}
+	
+	@GetMapping("editar/{id}")
+	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
+	//	model.Attribute("usuario",service.buscarPorId(id));
+		return "/turma/cadastro";
+	}
+	
+	@GetMapping("/editar")
+	public String editar(Usuario usuario) {
+	//	service.editar(usuario);
+		return "redirect:/usuarios/cadastrar";
+		
 		
 	}
 

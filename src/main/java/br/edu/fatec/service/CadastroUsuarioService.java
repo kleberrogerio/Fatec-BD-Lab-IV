@@ -27,6 +27,7 @@ public class CadastroUsuarioService {
 	@Transactional
 	public void excluir(Long usuarioId) {
 		usuarioRepository.deleteById(usuarioId);
-	}
+	}	
+	
 
 }
