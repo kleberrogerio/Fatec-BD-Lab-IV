@@ -21,16 +21,16 @@
 	        </nav>
 	
 	        <div class="container" id="cadastro">
-	            <form action="/cursos/salvar" method="POST">
+	            <form th:action="@{/cursos/salvar}" th:object="${curso}" method="POST">
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
 	                        <label for="nome">Nome do Curso:</label>
-	                        <input type="text" class="form-control" id="nome" placeholder="Nome do Curso" autofocus="autofocus"
-	                               name="nome" value=""/>
+	                        <input type="text" class="form-control" id="nome" 
+	                        placeholder="Nome do Curso" autofocus="autofocus" th:field="*{nome}"/>
 	                    </div>
 	                    <div class="form-group col-md-4">
 	                        <label for="curso">Periodicidade:</label>
-	                        <select id="curso" class="form-control" name="curso">
+	                        <select id="curso" class="form-control" name="curso" th:field="*{periodicidade}">
 	                            <option value="">Selecione</option>
 	                            <option value="M">Manhã</option>
 	                            <option value="T">Tarde</option>
@@ -39,8 +39,8 @@
 	                    </div>
 	                    <div class="form-group col-md-6">
 	                        <label for="nome">Descrição:</label>
-	                        <input type="text" class="form-control" id="nome" placeholder="Descrição do Curso" autofocus="autofocus"
-	                               name="nome" value=""/>
+	                        <input type="text" class="form-control" id="nome" 
+	                        placeholder="Descrição do Curso" autofocus="autofocus" th:field="*{descricao}" />
 	                    </div>
 	                </div>
 	                <input type="hidden" id="id" name="id" value=""/>
@@ -50,4 +50,4 @@
 	    </section>
 
 </body>
-</html>		
+</html>	
