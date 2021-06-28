@@ -1,10 +1,15 @@
 package br.edu.fatec.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.EqualsAndHashCode;
@@ -28,11 +33,13 @@ public class Curso {
 	private String nome;
 	
 	@Column(name = "cur_periodicidade")
-	private String periodicidade;
+	@Enumerated(EnumType.STRING)
+	private Periodicidade periodicidade;
 	
 	@Column(name = "cur_descricao")
 	private String descricao;
 	
+	@OneToMany(mappedBy = "curso")
+	private List<Disciplina> disciplina;
 	
-
 }

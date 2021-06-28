@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head><meta charset="UTF-8"/></head>
+<body>
+	    <section class="layout-content" layout:fragment="corpo">
+	
+	        <nav class="navbar navbar-expand-md bg-light">
+	            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+	                <ul class="navbar-nav mr-auto">
+	                    <li class="nav-item active">
+	                        <i class="oi oi-caret-right"></i>
+	                        <span>Cadastrar Usuários</span>
+	                    </li>
+	                </ul>
+	                <a class="btn btn-primary btn-md" href="/usuarios/listar" role="button">
+	                    <span class="oi oi-spreadsheet" title="Listar" aria-hidden="true"></span>
+	                    <span>Listar Usuários</span>
+	                </a>
+	            </div>
+	        </nav>
+	
+	        <div class="container" id="cadastro">
+	            <form th:action="@{/usuarios/salvar}" th:object="${usuario}" method="POST">
+	                <div class="form-row">
+	                    <div class="form-group col-md-6">
+	                        <label for="nome">Nome:</label>
+	                        <input type="text" class="form-control" id="nome"
+	                               placeholder="Nome" autofocus="autofocus" th:field="*{nome}"/>
+	                    </div>
+	                </div>
+	                <div class="form-row">
+	                    <div class="form-group col-md-6">
+	                        <label for="email">Email:</label>
+	                        <input type="text" class="form-control" id="email"
+	                               placeholder="Email" autofocus="autofocus" th:field="*{email}"/>
+	                    </div>
+	                </div>
+	                <div class="form-row">
+	                    <div class="form-group col-md-6">
+	                        <label for="senha">Senha:</label>
+	                        <input type="text" class="form-control" id="senha"
+	                               placeholder="Senha" autofocus="autofocus" th:field="*{senha}"/>
+	                    </div>
+	                </div>
+	                <div class="form-check">
+  						<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onclick="desabilita1();">
+  						<label class="form-check-label" for="flexRadioDefault1">
+    						Aluno
+  						</label>
+					</div>
+					<div class="form-check">
+  						<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" onclick="desabilita2();" checked>
+  						<label class="form-check-label" for="flexRadioDefault2">
+    						Professor
+  						</label>
+					</div>
+					 <div class="form-row">
+	                    <div class="form-group col-md-6">
+	                        <label for="cargo">Turma:</label>
+	                        <select id="CAMPO1" class="form-control" name="CAMPO1">
+	                            <option value="">Selecione...</option>
+	                            <option value="1">Turma A</option>
+	                            <option value="2">Turma B</option>
+	                            <option value="3">Turma C</option>
+	                        </select>
+	                        <div class="invalid-feedback">
+	
+	                        </div>
+	                    </div>
+	                </div>
+	                 <div class="form-row">
+	                    <div class="form-group col-md-6">
+	                        <label for="titulacao">Titulação:</label>
+	                        <input type="text" class="form-control" id="CAMPO2"
+	                               placeholder="Titulação" autofocus="autofocus" name="CAMPO2" value=""/>
+	                    </div>
+	                </div>
+	                <input type="hidden" id="id" name="id" value=""/>
+	                <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
+	            </form>
+	        </div>
+	    </section>
+</body>
+</html>

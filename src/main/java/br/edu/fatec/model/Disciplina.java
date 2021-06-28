@@ -17,7 +17,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "alu_aluno")
+@Table(name = "dis_disciplina")
 public class Disciplina {
 	
 	@EqualsAndHashCode.Include
@@ -44,8 +44,18 @@ public class Disciplina {
 	@Column(name = "pro_id")
 	private Long pro_id;
 	
+	@ManyToOne
+	@JoinColumn(name = "fk_disciplina_curso1")
+	private Curso curso;
 	
-
+	
+	@ManyToOne
+	@JoinColumn(name = "fk_disciplina_turma1")
+	private Turma turma;
+	
+	@ManyToOne
+	@JoinColumn(name = "fk_disciplina_pro_professor1")
+	private Professor professor;
 }
 
 

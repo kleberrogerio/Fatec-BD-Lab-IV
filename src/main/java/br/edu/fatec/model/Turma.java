@@ -29,4 +29,11 @@ public class Turma {
 	
 	@Column(name = "tur_descricao")
 	private String descricao;
+	
+	@OneToMany(mappedBy = "turma")
+	private List<Disciplina> disciplina;
+	
+	@OneToMany(mappedBy = "turma")
+	private List<Aluno> aluno;
+	
 }
