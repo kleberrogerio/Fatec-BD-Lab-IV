@@ -46,5 +46,11 @@ public class TurmaController {
 		service.editar(turma);
 		return "redirect:/turmas/cadastrar";
 	}
+	
+	@GetMapping("excluir/{id}")
+	public String excluir(@PathVariable("id") Long id, ModelMap model) {
+		service.excluir(id);
+		return listar(model);
+	}
 
 }
