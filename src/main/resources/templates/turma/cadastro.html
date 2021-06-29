@@ -20,7 +20,10 @@
 	        </nav>
 	
 	        <div class="container" id="cadastro">
-	            <form th:action="${turma.id==null} ? @{/turmas/salvar} : @{/turmas/editar}" 
+	        
+	        	<div th:replace="fragments/alert"></div>	        	
+	        	
+	            <form th:action="${turma.id == null} ? @{/turmas/salvar} : @{/turmas/editar}" 
 	            	  th:object="${turma}" method="POST">
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">

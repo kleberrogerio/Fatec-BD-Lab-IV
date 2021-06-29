@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.edu.fatec.model.Turma;
 import br.edu.fatec.service.TurmaServiceImpl;
@@ -29,8 +30,9 @@ public class TurmaController {
 		return "/turma/lista";
 	}
 	@PostMapping("/salvar")
-	public String salvar(Turma turma) {
+	public String salvar(Turma turma,RedirectAttributes attr) {
 		service.salvar(turma);
+		attr.addFlashAttribute("sucess","Turma inserido com sucesso!");
 		return "redirect:/turmas/cadastrar";
 		
 	}
@@ -42,14 +44,16 @@ public class TurmaController {
 	}
 	
 	@PostMapping("/editar")
-	public String editar(Turma turma) {
+	public String editar(Turma turma,RedirectAttributes attr) {
 		service.editar(turma);
+		attr.addFlashAttribute("sucess","Turma editado com sucesso!");
 		return "redirect:/turmas/cadastrar";
 	}
 	
 	@GetMapping("excluir/{id}")
 	public String excluir(@PathVariable("id") Long id, ModelMap model) {
 		service.excluir(id);
+		model.addAttribute("success","Turma excluída com sucesso!");
 		return listar(model);
 	}
 
